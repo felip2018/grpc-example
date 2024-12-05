@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.nextytech.grpcinterface;
+
+option java_multiple_files = true;
+option java_package = "com.nextytech.grpcinterface.lib";
+option java_outer_classname = "HelloProto";
+
+// Definición de la solicitud
+message HelloRequest {
+  string name = 1;
+}
+
+// Definición de la respuesta del servicio
+message HelloResponse {
+  string greeting = 1;
+}
+
+// Definición del servicio de saludo
+service MyService {
+  // Enviar un saludo
+  rpc SayHello (HelloRequest) returns (HelloResponse);
+}
